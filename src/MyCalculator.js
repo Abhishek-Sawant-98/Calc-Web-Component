@@ -19,7 +19,7 @@ customElements.define("my-calculator", class extends HTMLElement {
                 /* Hide scrollbar in IE, Edge */
                 scrollbar-width: none;
                 /* Hide scrollbar in Firefox */
-                width: 350px;
+                width: 300px;
                 margin: 50px;
                 padding: 10px;
                 border-radius: 25px;
@@ -191,7 +191,7 @@ customElements.define("my-calculator", class extends HTMLElement {
             <!------------------    Display   ------------------>
             <div class="calc-display">
                 <div id="output">
-                    <input type="text" placeholder="Enter input..." tabindex="1.2">
+                    <input type="text" inputmode="none" placeholder="Enter input..." tabindex="1.2">
                 </div>
                 <div id="error-msg"></div>
             </div>
@@ -320,7 +320,7 @@ customElements.define("my-calculator", class extends HTMLElement {
         let displayText;
         let charToBeInserted;
 
-        outputElem.addEventListener('focus', () => {
+        outputElem.addEventListener('focus', (event) => {
             const caretPos = this.getCaretPosition(outputElem);
             outputElem.setSelectionRange(caretPos, caretPos);
         });
