@@ -474,7 +474,8 @@ customElements.define("my-calculator", class extends HTMLElement {
                 (key === '-') ? subtract_key :
                 (key === '+') ? add_key :
                 (key === '/') ? divide_key :
-                (key === '^') ? exponent_key : null;
+                (key === '^') ? exponent_key :
+                (key === 'Escape') ? AC_key : null;
 
             if (keyToBeClicked) keyToBeClicked.click();
 
