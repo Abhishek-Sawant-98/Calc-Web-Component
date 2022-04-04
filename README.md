@@ -18,7 +18,7 @@ Hi there&#128075; &nbsp;&nbsp;&nbsp;This is a **Standard Calculator** [`Web Comp
   });
 ```
 
-> Click &#128073; [`THIS LINK`](https://abhishek-calc.herokuapp.com/) to see it in action &#128578;
+> Click &#128073; [`THIS LINK`](https://abhishek-calc.herokuapp.com/) to see it in action &#128578; You can also use keyboard (in laptops/desktops) for using this calculator.
 
 ## Demo Clips &#128071;
 
