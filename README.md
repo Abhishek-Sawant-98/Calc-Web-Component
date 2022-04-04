@@ -12,6 +12,8 @@ Hi there&#128075; &nbsp;&nbsp;&nbsp;This is a **Standard Calculator** [`Web Comp
       // ... Create child elements using document.createElement('tag-name')
       
       this.shadowRoot.appendChild(childElement); // Append child elements to the shadow DOM
+      
+      // ... append more child elements if any
     }
   });
 ```
