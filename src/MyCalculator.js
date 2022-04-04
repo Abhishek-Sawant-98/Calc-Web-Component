@@ -330,7 +330,9 @@ customElements.define("my-calculator", class extends HTMLElement {
                 if (event.key === ' ') {
                     calcKey.click();
                     setTimeout(() => {
-                        backspace_key.click();
+                        if (calcKey.id !== 'squared-key')
+                            backspace_key.click();
+
                         calcKey.focus();
                     }, 1);
                 }
