@@ -5,7 +5,7 @@ Hi there&#128075; &nbsp;&nbsp;&nbsp;This is a **Standard Calculator** `web compo
 
 ## Demo Clips &#128071;
 
-<table>
+<table height="1000">
   <tr>
     <td><img src='resources/recordings/calc-demo-part1.gif' alt='calc_demo_clip1'></td>
     <td><img src='resources/recordings/calc-demo-part2.gif' alt='calc_demo_clip2'</td>
