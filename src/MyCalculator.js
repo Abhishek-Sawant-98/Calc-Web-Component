@@ -19,7 +19,7 @@ customElements.define("my-calculator", class extends HTMLElement {
                 /* Hide scrollbar in IE, Edge */
                 scrollbar-width: none;
                 /* Hide scrollbar in Firefox */
-                width: 300px;
+                width: 360px;
                 margin: 50px;
                 padding: 10px;
                 border-radius: 25px;
@@ -292,7 +292,7 @@ customElements.define("my-calculator", class extends HTMLElement {
             myCalc.querySelector('.calc-heading > p').textContent = newValue;
         } else if (property === 'calc-input' && /^[\d\.\+\-\x\/\^\!\(\)]+$/.test(newValue)) {
             const inputElem = myCalc.querySelector('#output > input');
-            inputElem.textContent = newValue;
+            inputElem.value = newValue;
             inputElem.focus();
         } else {
             myCalc.style[property] = newValue;

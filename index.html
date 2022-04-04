@@ -5,23 +5,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Calculator</title>
+    <title>Online Calculator</title>
     <link rel="icon" type="image/png" href="./resources/images/calc-favicon.png">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         body {
-            width: 95vw;
             display: flex;
+            flex-flow: row nowrap;
             justify-content: center;
+            align-items: center;
+            width: 96vw;
+            height: 100vh;
             background-image: linear-gradient(120deg, rgba(240, 226, 100, 0.5), rgba(247, 152, 44, 0.5));
-            background-repeat: repeat;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        @media screen and (max-width: 450px) {
+            body {
+                width: 120vw;
+            }
         }
     </style>
 </head>
 
 <body>
     <!-- My custom calculator web component -->
-    <my-calculator calc-name="Abhishek's Calc" calc-input="" width="350px" height="" margin="50px"
+    <my-calculator calc-name="Abhishek's Calc" calc-input="" width="360px" height="" margin="30px 0px"
         border-radius="25px">
     </my-calculator>
 
