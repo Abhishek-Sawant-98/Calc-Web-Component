@@ -5,13 +5,13 @@ Hi there&#128075; &nbsp;&nbsp;&nbsp;This is a **Standard Calculator** `web compo
 
 ## Demo Clips &#128071;
 
-<table height="1000">
+<table>
   <tr>
     <td><img src='resources/recordings/calc-demo-part1.gif' alt='calc_demo_clip1'></td>
-    <td><img src='resources/recordings/calc-demo-part2.gif' alt='calc_demo_clip2'</td>
+    <td><img src='resources/recordings/calc-demo-part2.gif' alt='calc_demo_clip2'></td>
+  </tr>
   <tr>
-    <tr>
-    <td><img src='resources/recordings/calc-demo-part3.gif' alt='calc_demo_clip3'</td>
-    <td><img src='resources/recordings/calc-demo-part4.gif' alt='calc_demo_clip4'</td>
-  <tr>
+    <td><img src='resources/recordings/calc-demo-part3.gif' alt='calc_demo_clip3'></td>
+    <td><img src='resources/recordings/calc-demo-part4.gif' alt='calc_demo_clip4'></td>
+  </tr>
 </table>
