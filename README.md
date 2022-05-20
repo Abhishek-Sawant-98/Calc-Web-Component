@@ -1,5 +1,5 @@
 # Calc-Web-Component
-Hi there&#128075; &nbsp;&nbsp;&nbsp;This is a **Standard Calculator** [`Web Component`](https://developer.mozilla.org/en-US/docs/Web/Web_Components) (custom element) developed using HTML, CSS, and JS. The custom tag created for this calculator is `<my-calculator></my-calculator>`. This custom tag contains various attributes which can be modified to our liking in `index.html` file.
+Hi there&#128075; &nbsp;&nbsp;&nbsp;This is a **Standard Calculator** [`Web Component`](https://developer.mozilla.org/en-US/docs/Web/Web_Components) (custom element) developed only using HTML5, CSS3, and Vanilla JS. The custom tag created for this calculator is `<my-calculator></my-calculator>`. This custom tag contains various attributes which can be modified to our liking in `index.html` file.
 
 > Javascript syntax for creating a basic custom web component &#128071;
 
