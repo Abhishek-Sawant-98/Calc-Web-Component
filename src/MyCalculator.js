@@ -110,7 +110,7 @@ customElements.define(
                   margin: 10px;
               }
   
-              .calc-keys>div {
+              .calc-key {
                   display: flex;
                   justify-content: center;
                   align-items: center;
@@ -122,12 +122,12 @@ customElements.define(
                   border-radius: 50%;
               }
   
-              .calc-keys>div:hover {
+              .calc-key:hover {
                   cursor: pointer;
                   box-shadow: 4px 4px 15px rgba(173, 173, 173, 0.6);
               }
   
-              .calc-keys>div:active {
+              .calc-key:active {
                   cursor: pointer;
                   border-radius: 15px;
               }
@@ -217,64 +217,64 @@ customElements.define(
               <!------------------    Keys   ------------------>
               <div class="calc-keys">
                   <!------------------------    Row 1   ------------------------>
-                  <div id="reset-key" title="All Clear (Reset)" tabindex="2">AC</div>
-                  <div class="orange-keys" id="inverse-key" title="Inverse (Reciprocal)" tabindex="3">
-                      <img src="./resources/images/x-inverse.png" width="35" height="35">
+                  <div id="reset-key" class="calc-key" title="All Clear (Reset)" tabindex="2">AC</div>
+                  <div class="calc-key orange-keys" id="inverse-key" title="Inverse (Reciprocal)" tabindex="3">
+                      <img id="img-inverse-key" src="./resources/images/x-inverse.png" width="35" height="35">
                   </div>
-                  <div class="orange-keys" id="squared-key" title="Squared" tabindex="4">
-                      <img src="./resources/images/x-square.png" width="25" height="25">
+                  <div class="calc-key orange-keys" id="squared-key" title="Squared" tabindex="4">
+                      <img id="img-squared-key" src="./resources/images/x-square.png" width="25" height="25">
                   </div>
-                  <div class="orange-keys" id="sqrt-key" title="Square Root" tabindex="5">
-                    <img src="./resources/images/sqrt.png" width="40" height="40">
+                  <div class="calc-key orange-keys" id="sqrt-key" title="Square Root" tabindex="5">
+                    <img id="img-sqrt-key" src="./resources/images/sqrt.png" width="40" height="40">
                   </div>
   
                   <!------------------------    Row 2   ------------------------>
-                  <div class="blue-keys" id="parenthesis-key" title="Parenthesis" tabindex="6">
+                  <div class="calc-key blue-keys" id="parenthesis-key" title="Parenthesis" tabindex="6">
                       ()
                   </div>
-                  <div class="blue-keys" id="factorial-key" title="Factorial ( a! )" tabindex="7">
+                  <div class="calc-key blue-keys" id="factorial-key" title="Factorial ( a! )" tabindex="7">
                       !
                   </div>
-                  <div class="blue-keys" id="exponent-key" title="Exponent (x ^ y)" tabindex="8">
-                      <img src="./resources/images/x-power-y.png" width="30" height="30">
+                  <div class="calc-key blue-keys" id="exponent-key" title="Exponent (x ^ y)" tabindex="8">
+                      <img id="img-exponent-key" src="./resources/images/x-power-y.png" width="30" height="30">
                   </div>
-                  <div class="blue-keys" style="font-size:42px;font-family:monospace" id="divide-key" title="Divide (a / b)" tabindex="9">
+                  <div class="calc-key blue-keys" style="font-size:42px;font-family:monospace" id="divide-key" title="Divide (a / b)" tabindex="9">
                     &divide;
                   </div>
   
                   <!------------------------    Row 3   ------------------------>
-                  <div class="black-keys" id="key-7" tabindex="22">7</div>
-                  <div class="black-keys" id="key-8" tabindex="23">8</div>
-                  <div class="black-keys" id="key-9" tabindex="24">9</div>
-                  <div class="blue-keys" id="multiply-key" title="Multiply (a x b)" tabindex="10">
-                      <i class="material-icons" style="font-size:32px;">close</i>
+                  <div class="calc-key black-keys" id="key-7" tabindex="22">7</div>
+                  <div class="calc-key black-keys" id="key-8" tabindex="23">8</div>
+                  <div class="calc-key black-keys" id="key-9" tabindex="24">9</div>
+                  <div class="calc-key blue-keys" id="multiply-key" title="Multiply (a x b)" tabindex="10">
+                      <i id="img-multiply-key" class="material-icons" style="font-size:32px;">close</i>
                   </div>
   
                   <!------------------------    Row 4   ------------------------>
-                  <div class="black-keys" id="key-4" tabindex="19">4</div>
-                  <div class="black-keys" id="key-5" tabindex="20">5</div>
-                  <div class="black-keys" id="key-6" tabindex="21">6</div>
-                  <div class="blue-keys" id="subtract-key" title="Subtract (a - b)" tabindex="11">
-                      <i class="material-icons" style="font-size:35px;">remove</i>
+                  <div class="calc-key black-keys" id="key-4" tabindex="19">4</div>
+                  <div class="calc-key black-keys" id="key-5" tabindex="20">5</div>
+                  <div class="calc-key black-keys" id="key-6" tabindex="21">6</div>
+                  <div class="calc-key blue-keys" id="subtract-key" title="Subtract (a - b)" tabindex="11">
+                      <i id="img-subtract-key" class="material-icons" style="font-size:35px;">remove</i>
                   </div>
   
                   <!------------------------    Row 5   ------------------------>
-                  <div class="black-keys" id="key-1" tabindex="16">1</div>
-                  <div class="black-keys" id="key-2" tabindex="17">2</div>
-                  <div class="black-keys" id="key-3" tabindex="18">3</div>
-                  <div class="blue-keys" id="add-key" title="Add (a + b)" tabindex="12">
-                      <i class="material-icons" style="font-size:35px;">add</i>
+                  <div class="calc-key black-keys" id="key-1" tabindex="16">1</div>
+                  <div class="calc-key black-keys" id="key-2" tabindex="17">2</div>
+                  <div class="calc-key black-keys" id="key-3" tabindex="18">3</div>
+                  <div class="calc-key blue-keys" id="add-key" title="Add (a + b)" tabindex="12">
+                      <i id="img-add-key" class="material-icons" style="font-size:35px;">add</i>
                   </div>
   
                   <!------------------------    Row 6   ------------------------>
-                  <div class="black-keys" id="decimal-point-key" title="Decimal point" tabindex="25">.</div>
-                  <div class="black-keys" id="key-0" tabindex="15">0</div>
-                  <div class="black-keys" id="backspace-key" title="Backspace" tabindex="14">
-                      <i class="material-icons" style="font-size: 30px;margin-right: 2px">
+                  <div class="calc-key black-keys" id="decimal-point-key" title="Decimal point" tabindex="25">.</div>
+                  <div class="calc-key black-keys" id="key-0" tabindex="15">0</div>
+                  <div class="calc-key black-keys" id="backspace-key" title="Backspace" tabindex="14">
+                      <i id="img-backspace-key" class="material-icons" style="font-size: 30px;margin-right: 2px">
                           backspace
                       </i>
                   </div>
-                  <div id="equal-key" style="font-size:41px;font-family:monospace" title="Equals (Calculate)" tabindex="13">
+                  <div id="equal-key" class="calc-key" style="font-size:41px;font-family:monospace" title="Equals (Calculate)" tabindex="13">
                       =
                   </div>
   
@@ -328,63 +328,39 @@ customElements.define(
     }
 
     setOnclickForAllKeys(shadowRoot) {
-      const AC_key = shadowRoot.querySelector("#reset-key");
-      const inverse_key = shadowRoot.querySelector("#inverse-key");
-      const squared_key = shadowRoot.querySelector("#squared-key");
-      const sqrt_key = shadowRoot.querySelector("#sqrt-key");
-      const parenthesis_key = shadowRoot.querySelector("#parenthesis-key");
-      const exponent_key = shadowRoot.querySelector("#exponent-key");
-      const factorial_key = shadowRoot.querySelector("#factorial-key");
-      const divide_key = shadowRoot.querySelector("#divide-key");
-      const multiply_key = shadowRoot.querySelector("#multiply-key");
-      const subtract_key = shadowRoot.querySelector("#subtract-key");
-      const add_key = shadowRoot.querySelector("#add-key");
-      const backspace_key = shadowRoot.querySelector("#backspace-key");
-      const equal_key = shadowRoot.querySelector("#equal-key");
-      const decimalPoint_key = shadowRoot.querySelector("#decimal-point-key");
       const outputElem = shadowRoot.querySelector("#output > input");
-      const calcKeys = shadowRoot.querySelectorAll(".calc-keys > div");
-
+      const calcKeys = shadowRoot.querySelectorAll(".calc-keys")[0];
       let displayText;
       let charToBeInserted;
 
-      outputElem.addEventListener("focus", (event) => {
-        const caretPos = this.getCaretPosition(outputElem);
-        outputElem.setSelectionRange(caretPos, caretPos);
-      });
+      const onNumericKeyClick = (number) => {
+        this.resetDisplay(shadowRoot);
+        this.insertChar(outputElem, number);
+        outputElem.focus();
+      };
 
-      calcKeys.forEach((calcKey) => {
-        calcKey.addEventListener("keydown", (event) => {
-          if (event.key === " ") {
-            calcKey.click();
-            setTimeout(() => {
-              if (calcKey.id !== "squared-key") backspace_key.click();
-
-              calcKey.focus();
-            }, 1);
-          }
-        });
-      });
-
-      AC_key.addEventListener("click", () => {
+      const onResetKeyClick = () => {
         this.resetDisplay(shadowRoot);
         outputElem.value = "";
         outputElem.focus();
-      });
+      };
 
-      inverse_key.addEventListener("click", () => {
+      const onInverseKeyClick = () => {
         this.calculateResult(shadowRoot, "**-1");
         outputElem.focus();
-      });
-      squared_key.addEventListener("click", () => {
+      };
+
+      const onSquaredKeyClick = () => {
         this.calculateResult(shadowRoot, "**2");
         outputElem.focus();
-      });
-      sqrt_key.addEventListener("click", () => {
+      };
+
+      const onSqrtKeyClick = () => {
         this.calculateResult(shadowRoot, "**0.5");
         outputElem.focus();
-      });
-      parenthesis_key.addEventListener("click", () => {
+      };
+
+      const onParenthesisKeyClick = () => {
         displayText = this.getDisplayTextBeforeCaret(outputElem);
         let openingBracketCount = 0;
         let closingBracketCount = 0;
@@ -405,9 +381,9 @@ customElements.define(
             : "(";
 
         this.insertChar(outputElem, charToBeInserted);
-      });
+      };
 
-      exponent_key.addEventListener("click", () => {
+      const onExponentKeyClick = () => {
         this.resetDisplay(shadowRoot);
         displayText = this.getDisplayTextBeforeCaret(outputElem);
         charToBeInserted =
@@ -420,8 +396,9 @@ customElements.define(
             : "^";
 
         this.insertChar(outputElem, charToBeInserted);
-      });
-      factorial_key.addEventListener("click", () => {
+      };
+
+      const onFactorialKeyClick = () => {
         this.resetDisplay(shadowRoot);
         displayText = this.getDisplayTextBeforeCaret(outputElem);
         charToBeInserted =
@@ -434,8 +411,9 @@ customElements.define(
             : "!";
 
         this.insertChar(outputElem, charToBeInserted);
-      });
-      divide_key.addEventListener("click", () => {
+      };
+
+      const onDivideKeyClick = () => {
         this.resetDisplay(shadowRoot);
         displayText = this.getDisplayTextBeforeCaret(outputElem);
         charToBeInserted =
@@ -448,8 +426,9 @@ customElements.define(
             : "/";
 
         this.insertChar(outputElem, charToBeInserted);
-      });
-      multiply_key.addEventListener("click", () => {
+      };
+
+      const onMultiplyKeyClick = () => {
         this.resetDisplay(shadowRoot);
         displayText = this.getDisplayTextBeforeCaret(outputElem);
         charToBeInserted =
@@ -462,8 +441,9 @@ customElements.define(
             : "x";
 
         this.insertChar(outputElem, charToBeInserted);
-      });
-      subtract_key.addEventListener("click", () => {
+      };
+
+      const onSubtractKeyClick = () => {
         this.resetDisplay(shadowRoot);
         displayText = this.getDisplayTextBeforeCaret(outputElem);
         charToBeInserted = /[\-]$/.test(displayText)
@@ -473,8 +453,9 @@ customElements.define(
           : "-";
 
         this.insertChar(outputElem, charToBeInserted);
-      });
-      add_key.addEventListener("click", () => {
+      };
+
+      const onAddKeyClick = () => {
         this.resetDisplay(shadowRoot);
         displayText = this.getDisplayTextBeforeCaret(outputElem);
         charToBeInserted =
@@ -487,8 +468,9 @@ customElements.define(
             : "+";
 
         this.insertChar(outputElem, charToBeInserted);
-      });
-      backspace_key.addEventListener("click", () => {
+      };
+
+      const onBackspaceKeyClick = () => {
         this.resetDisplay(shadowRoot);
         let caretPos = this.getCaretPosition(outputElem);
         let arr = outputElem.value.split("");
@@ -496,8 +478,14 @@ customElements.define(
         outputElem.value = arr.join("");
         outputElem.setSelectionRange(caretPos, caretPos);
         outputElem.focus();
-      });
-      decimalPoint_key.addEventListener("click", () => {
+      };
+
+      const onEqualKeyClick = () => {
+        this.calculateResult(shadowRoot, "");
+        this.getOutputElement(shadowRoot).focus();
+      };
+
+      const onDecimalPointKeyClick = () => {
         this.resetDisplay(shadowRoot);
         displayText = this.getDisplayTextBeforeCaret(outputElem);
         charToBeInserted =
@@ -507,21 +495,136 @@ customElements.define(
             ? ""
             : ".";
         this.insertChar(outputElem, charToBeInserted);
+      };
+
+      // Event delegation (using 'e.target.id' to set event listener to each calc key)
+      calcKeys.addEventListener("click", (e) => {
+        switch (e.target.id) {
+          case "reset-key":
+            onResetKeyClick();
+            break;
+
+          case "inverse-key":
+          case "img-inverse-key":
+            onInverseKeyClick();
+            break;
+
+          case "squared-key":
+          case "img-squared-key":
+            onSquaredKeyClick();
+            break;
+
+          case "sqrt-key":
+          case "img-sqrt-key":
+            onSqrtKeyClick();
+            break;
+
+          case "parenthesis-key":
+            onParenthesisKeyClick();
+            break;
+
+          case "exponent-key":
+          case "img-exponent-key":
+            onExponentKeyClick();
+            break;
+
+          case "factorial-key":
+            onFactorialKeyClick();
+            break;
+
+          case "divide-key":
+            onDivideKeyClick();
+            break;
+
+          case "multiply-key":
+          case "img-multiply-key":
+            onMultiplyKeyClick();
+            break;
+
+          case "subtract-key":
+          case "img-subtract-key":
+            onSubtractKeyClick();
+            break;
+
+          case "add-key":
+          case "img-add-key":
+            onAddKeyClick();
+            break;
+
+          case "backspace-key":
+          case "img-backspace-key":
+            onBackspaceKeyClick();
+            break;
+
+          case "equal-key":
+            onEqualKeyClick();
+            break;
+
+          case "decimal-point-key":
+            onDecimalPointKeyClick();
+            break;
+
+          case "key-0":
+            onNumericKeyClick(0);
+            break;
+
+          case "key-1":
+            onNumericKeyClick(1);
+            break;
+
+          case "key-2":
+            onNumericKeyClick(2);
+            break;
+
+          case "key-3":
+            onNumericKeyClick(3);
+            break;
+
+          case "key-4":
+            onNumericKeyClick(4);
+            break;
+
+          case "key-5":
+            onNumericKeyClick(5);
+            break;
+
+          case "key-6":
+            onNumericKeyClick(6);
+            break;
+
+          case "key-7":
+            onNumericKeyClick(7);
+            break;
+
+          case "key-8":
+            onNumericKeyClick(8);
+            break;
+
+          case "key-9":
+            onNumericKeyClick(9);
+            break;
+        }
       });
 
-      // Setting onclick for numeric keys (0-9)
-      for (let i = 0; i < 10; ++i) {
-        const key = shadowRoot.querySelector(`#key-${i}`);
-        key.addEventListener("click", () => {
-          this.resetDisplay(shadowRoot);
-          this.insertChar(outputElem, i);
-          outputElem.focus();
-        });
-      }
+      // Event delegation (using 'e.target.className' to set event listener to each calc key)
+      calcKeys.addEventListener("keydown", (e) => {
+        if (e.target.className.includes("calc-key")) {
+          const calcKey = e.target;
+          if (e.key === " ") {
+            calcKey.click();
+            setTimeout(() => {
+              if (calcKey.id !== "squared-key" || calcKey.id !== 'img-squared-key')
+                shadowRoot.querySelector("#backspace-key").click();
 
-      equal_key.addEventListener("click", () => {
-        this.calculateResult(shadowRoot, "");
-        this.getOutputElement(shadowRoot).focus();
+              calcKey.focus();
+            }, 1);
+          }
+        }
+      });
+
+      outputElem.addEventListener("focus", (event) => {
+        const caretPos = this.getCaretPosition(outputElem);
+        outputElem.setSelectionRange(caretPos, caretPos);
       });
 
       outputElem.addEventListener("keydown", (event) => {
@@ -533,30 +636,31 @@ customElements.define(
 
         const keyToBeClicked =
           key === "(" || key === ")"
-            ? parenthesis_key
+            ? "parenthesis-key"
             : key === "!"
-            ? factorial_key
+            ? "factorial-key"
             : key === "*"
-            ? multiply_key
+            ? "multiply-key"
             : key === "Enter"
-            ? equal_key
+            ? "equal-key"
             : key === "="
-            ? equal_key
+            ? "equal-key"
             : key === "."
-            ? decimalPoint_key
+            ? "decimal-point-key"
             : key === "-"
-            ? subtract_key
+            ? "subtract-key"
             : key === "+"
-            ? add_key
+            ? "add-key"
             : key === "/"
-            ? divide_key
+            ? "divide-key"
             : key === "^"
-            ? exponent_key
+            ? "exponent-key"
             : key === "Escape"
-            ? AC_key
+            ? "reset-key"
             : null;
 
-        if (keyToBeClicked) keyToBeClicked.click();
+        if (keyToBeClicked)
+          shadowRoot.querySelector(`#${keyToBeClicked}`).click();
 
         // Maintain the 'enabled' and 'focus' state of the input
         // upon the above restriction after 10 ms
