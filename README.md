@@ -10,7 +10,7 @@ Hi there👋 &nbsp;&nbsp;This is a **Standard Calculator** [`Web Component`](htt
 - `ENTER` or `=` key can be used (when calc display is in focus) to evaluate the entered expression.
 - `ESCAPE` key can be used to reset calc display (when in focus).
 - The display ignores input from any other keyboard key apart from numeric and arithmetic keys.
-- [`Event Delegation`](https://dmitripavlutin.com/javascript-event-delegation/) used for listening to 'click' and 'keydown' events of each calc key.
+- [`Event Delegation`](https://dmitripavlutin.com/javascript-event-delegation/) has been used for listening to 'click' and 'keydown' events of each calc key.
 - A single parenthesis key `()` has been used for conditionally entering `(` or `)` brackets.
 
 ## Demo Clips 👇
