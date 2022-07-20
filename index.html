@@ -2,14 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Online Calculator</title>
-    <link
-      rel="icon"
-      type="image/png"
-      href="./resources/images/calc-favicon.png"
+    <link rel="icon" href="resources/icons/favicon512.png" />
+    <link rel="apple-touch-icon" href="resources/icons/favicon192.png" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="An Online Calc Web component built using HTML, CSS, JS"
     />
+    <title>Online Calculator</title>
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -48,6 +50,20 @@
       border-radius="25px"
     >
     </my-calculator>
+
+    <!-- Service worker registration script -->
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", async () => {
+          try {
+            await navigator.serviceWorker.register("service-worker.js");
+          } catch (error) {
+            // registration failed :(
+            console.error("ServiceWorker registration failed: ", error);
+          }
+        });
+      }
+    </script>
 
     <script src="dist/MyCalculator.min.js"></script>
   </body>

@@ -219,13 +219,13 @@ customElements.define(
                   <!------------------------    Row 1   ------------------------>
                   <div id="reset-key" class="calc-key" title="All Clear (Reset)" tabindex="2">AC</div>
                   <div class="calc-key orange-keys" id="inverse-key" title="Inverse (Reciprocal)" tabindex="3">
-                      <img id="img-inverse-key" src="./resources/images/x-inverse.png" width="35" height="35">
+                      <img id="img-inverse-key" src="./resources/images/x-inverse.png" alt="x-inverse-key" width="35" height="35">
                   </div>
                   <div class="calc-key orange-keys" id="squared-key" title="Squared" tabindex="4">
-                      <img id="img-squared-key" src="./resources/images/x-square.png" width="25" height="25">
+                      <img id="img-squared-key" src="./resources/images/x-square.png" alt="x-squared-key" width="25" height="25">
                   </div>
                   <div class="calc-key orange-keys" id="sqrt-key" title="Square Root" tabindex="5">
-                    <img id="img-sqrt-key" src="./resources/images/sqrt.png" width="40" height="40">
+                    <img id="img-sqrt-key" src="./resources/images/sqrt.png" alt="sqrt-key" width="40" height="40">
                   </div>
   
                   <!------------------------    Row 2   ------------------------>
@@ -236,7 +236,7 @@ customElements.define(
                       !
                   </div>
                   <div class="calc-key blue-keys" id="exponent-key" title="Exponent (x ^ y)" tabindex="8">
-                      <img id="img-exponent-key" src="./resources/images/x-power-y.png" width="30" height="30">
+                      <img id="img-exponent-key" src="./resources/images/x-power-y.png" alt="exponent-key" width="30" height="30">
                   </div>
                   <div class="calc-key blue-keys" style="font-size:42px;font-family:monospace" id="divide-key" title="Divide (a / b)" tabindex="9">
                     &divide;
@@ -613,7 +613,10 @@ customElements.define(
           if (e.key === " ") {
             calcKey.click();
             setTimeout(() => {
-              if (calcKey.id !== "squared-key" || calcKey.id !== 'img-squared-key')
+              if (
+                calcKey.id !== "squared-key" ||
+                calcKey.id !== "img-squared-key"
+              )
                 shadowRoot.querySelector("#backspace-key").click();
 
               calcKey.focus();
