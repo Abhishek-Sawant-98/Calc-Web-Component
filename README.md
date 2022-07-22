@@ -44,7 +44,7 @@ Hi there👋 &nbsp;&nbsp;This is a **Standard Calculator** [`Web Component`](htt
   });
 ```
 
-## Steps to Run Locally
+## Steps to Run Project Locally
 - Clone this repo to your local machine.
 - Open repo in [`vscode`](https://code.visualstudio.com/).
 - Open with [`live server`](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer).
