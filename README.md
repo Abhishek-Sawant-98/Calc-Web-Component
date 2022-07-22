@@ -17,12 +17,12 @@ Hi there👋 &nbsp;&nbsp;This is a **Standard Calculator** [`Web Component`](htt
 
 <table>
   <tr>
-    <td><img src='https://github.com/Abhishek-Sawant-98/project-readme-files/blob/main/resources/calc-web-component/recordings/calc-demo-part1.gif' alt='calc_demo_clip1'></td>
-    <td><img src='https://github.com/Abhishek-Sawant-98/project-readme-files/blob/main/resources/calc-web-component/recordings/calc-demo-part2.gif' alt='calc_demo_clip2'></td>
+    <td><img src='https://user-images.githubusercontent.com/66935206/180427910-8dbb3bb2-43e1-48d4-8018-ea04666b4daf.gif' alt='calc_demo_clip1'></td>
+    <td><img src='https://user-images.githubusercontent.com/66935206/180427950-c537469f-96fc-4815-9abc-bed33b64bb78.gif' alt='calc_demo_clip2'></td>
   </tr>
   <tr>
-    <td><img src='https://github.com/Abhishek-Sawant-98/project-readme-files/blob/main/resources/calc-web-component/recordings/calc-demo-part3.gif' alt='calc_demo_clip3'></td>
-    <td><img src='https://github.com/Abhishek-Sawant-98/project-readme-files/blob/main/resources/calc-web-component/recordings/calc-demo-part4.gif' alt='calc_demo_clip4'></td>
+    <td><img src='https://user-images.githubusercontent.com/66935206/180427960-d0842928-cd64-47a0-8596-3692f50b67a0.gif' alt='calc_demo_clip3'></td>
+    <td><img src='https://user-images.githubusercontent.com/66935206/180427975-1251c4a8-81ad-47e4-a3ad-7561f02fdbff.gif' alt='calc_demo_clip4'></td>
   </tr>
 </table>
 
