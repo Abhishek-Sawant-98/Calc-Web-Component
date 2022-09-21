@@ -489,11 +489,7 @@ customElements.define(
         this.resetDisplay(shadowRoot);
         displayText = this.getDisplayTextBeforeCaret(outputElem);
         charToBeInserted =
-          displayText === ""
-            ? "0."
-            : /[\.]|(\d+\.\d+)$/.test(displayText)
-            ? ""
-            : ".";
+          displayText === "" ? "0." : /[\.]$/.test(displayText) ? "" : ".";
         this.insertChar(outputElem, charToBeInserted);
       };
 
