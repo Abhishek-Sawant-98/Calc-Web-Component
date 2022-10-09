@@ -1,4 +1,4 @@
-customElements.define(
+(customElements as CustomElementRegistry).define(
   "my-calculator",
   class extends HTMLElement {
     static get observedAttributes() {
@@ -298,13 +298,20 @@ customElements.define(
     }
 
     // Whenever <my-calculator> attribute values are changed
-    attributeChangedCallback(name, oldValue, newValue) {
+    attributeChangedCallback(
+      name: string,
+      oldValue: string,
+      newValue: string
+    ): void {
       console.log(
         `'${name}' attribute changed from '${oldValue}' to '${newValue}' !`
       );
 
-      const myCalc = this.shadowRoot.querySelector(".calc-container");
-      const property =
+      const myCalc = this?.shadowRoot?.querySelector(
+        ".calc-container"
+      ) as HTMLElement;
+
+      const property: any =
         name === "width" ||
         name === "height" ||
         name === "margin" ||
@@ -313,29 +320,41 @@ customElements.define(
           ? name
           : "borderRadius";
 
-      if (property === "calc-name" && newValue.trim() !== "") {
-        myCalc.querySelector(".calc-heading > p").textContent = newValue;
+      const calcHeader = myCalc?.querySelector(".calc-heading > p");
+
+      if (
+        property === "calc-name" &&
+        newValue?.trim() !== "" &&
+        calcHeader?.textContent
+      ) {
+        calcHeader.textContent = newValue;
       } else if (
         property === "calc-input" &&
         /^[\d\.\+\-\x\/\^\!\(\)]+$/.test(newValue)
       ) {
-        const inputElem = myCalc.querySelector("#output > input");
+        const inputElem = myCalc?.querySelector(
+          "#output > input"
+        ) as HTMLInputElement;
+
+        if (!inputElem?.value) return;
         inputElem.value = newValue;
         inputElem.focus();
-      } else {
+      } else if (myCalc?.style) {
         myCalc.style[property] = newValue;
       }
     }
 
-    setOnclickForAllKeys(shadowRoot) {
-      const outputElem = shadowRoot.querySelector("#output > input");
+    setOnclickForAllKeys(shadowRoot: ShadowRoot) {
+      const outputElem = shadowRoot.querySelector(
+        "#output > input"
+      ) as HTMLInputElement;
       const calcKeys = shadowRoot.querySelectorAll(".calc-keys")[0];
       let displayText;
       let charToBeInserted;
 
-      const onNumericKeyClick = (number) => {
+      const onNumericKeyClick = (n: string) => {
         this.resetDisplay(shadowRoot);
-        this.insertChar(outputElem, number);
+        this.insertChar(outputElem, n);
         outputElem.focus();
       };
 
@@ -494,8 +513,8 @@ customElements.define(
       };
 
       // Event delegation (using 'e.target.id' to set event listener to each calc key)
-      calcKeys.addEventListener("click", (e) => {
-        switch (e.target.id) {
+      calcKeys.addEventListener("click", (e: Event) => {
+        switch ((e?.target as HTMLElement)?.id) {
           case "reset-key":
             onResetKeyClick();
             break;
@@ -561,59 +580,61 @@ customElements.define(
             break;
 
           case "key-0":
-            onNumericKeyClick(0);
+            onNumericKeyClick("0");
             break;
 
           case "key-1":
-            onNumericKeyClick(1);
+            onNumericKeyClick("1");
             break;
 
           case "key-2":
-            onNumericKeyClick(2);
+            onNumericKeyClick("2");
             break;
 
           case "key-3":
-            onNumericKeyClick(3);
+            onNumericKeyClick("3");
             break;
 
           case "key-4":
-            onNumericKeyClick(4);
+            onNumericKeyClick("4");
             break;
 
           case "key-5":
-            onNumericKeyClick(5);
+            onNumericKeyClick("5");
             break;
 
           case "key-6":
-            onNumericKeyClick(6);
+            onNumericKeyClick("6");
             break;
 
           case "key-7":
-            onNumericKeyClick(7);
+            onNumericKeyClick("7");
             break;
 
           case "key-8":
-            onNumericKeyClick(8);
+            onNumericKeyClick("8");
             break;
 
           case "key-9":
-            onNumericKeyClick(9);
+            onNumericKeyClick("9");
             break;
         }
       });
 
       // Event delegation (using 'e.target.className' to set event listener to each calc key)
-      calcKeys.addEventListener("keydown", (e) => {
-        if (e.target.className.includes("calc-key")) {
-          const calcKey = e.target;
-          if (e.key === " ") {
+      calcKeys.addEventListener("keydown", (e: Event) => {
+        if ((e?.target as HTMLElement)?.className?.includes("calc-key")) {
+          const calcKey = e.target as HTMLElement;
+          if ((e as KeyboardEvent)?.key === " ") {
             calcKey.click();
             setTimeout(() => {
               if (
-                calcKey.id !== "squared-key" ||
+                calcKey.id !== "squared-key" &&
                 calcKey.id !== "img-squared-key"
               )
-                shadowRoot.querySelector("#backspace-key").click();
+                (
+                  shadowRoot?.querySelector("#backspace-key") as HTMLElement
+                ).click();
 
               calcKey.focus();
             }, 1);
@@ -659,7 +680,9 @@ customElements.define(
             : null;
 
         if (keyToBeClicked)
-          shadowRoot.querySelector(`#${keyToBeClicked}`).click();
+          (
+            shadowRoot?.querySelector(`#${keyToBeClicked}`) as HTMLElement
+          ).click();
 
         // Maintain the 'enabled' and 'focus' state of the input
         // upon the above restriction after 10 ms
@@ -672,7 +695,7 @@ customElements.define(
       });
     }
 
-    insertChar(outputElem, char) {
+    insertChar(outputElem: HTMLInputElement, char: string) {
       if (char === "replaced") return;
 
       if (char === "") {
@@ -691,17 +714,17 @@ customElements.define(
       outputElem.focus();
     }
 
-    getCaretPosition(outputElem) {
-      if (!outputElem) return;
+    getCaretPosition(outputElem: HTMLInputElement): number {
+      if (!outputElem) return 0;
       return outputElem.selectionStart || outputElem.value.length - 1;
     }
 
-    getDisplayTextBeforeCaret(outputElem) {
+    getDisplayTextBeforeCaret(outputElem: HTMLInputElement): string {
       const caretPos = this.getCaretPosition(outputElem);
       return outputElem.value.substring(0, caretPos);
     }
 
-    replaceOperator(outputElem, operator) {
+    replaceOperator(outputElem: HTMLInputElement, operator: string) {
       const caretPos = this.getCaretPosition(outputElem);
       const arr = outputElem.value.split("");
       arr.splice(caretPos - 1, 1, operator);
@@ -711,7 +734,7 @@ customElements.define(
       return "replaced";
     }
 
-    parseExpression(expression) {
+    parseExpression(expression: string): string {
       // Replace '.' with '*('        .(     =>   *(
       // Just after 0-9 add '*'       9(     =>   9*(
       // Just after '!' add '*'       !(     =>   !*(
@@ -748,9 +771,9 @@ customElements.define(
         .replaceAll(")9", ")*9");
     }
 
-    calculateResult(shadowRoot, appendOperation) {
+    calculateResult(shadowRoot: ShadowRoot, appendOperation: string) {
       this.resetDisplay(shadowRoot);
-      let outputElem = this.getOutputElement(shadowRoot);
+      let outputElem = this.getOutputElement(shadowRoot) as HTMLInputElement;
       let displayText = outputElem.value;
       if (displayText === "") {
         return;
@@ -797,12 +820,12 @@ customElements.define(
       }
     }
 
-    parseFactorialInput(text) {
+    parseFactorialInput(text: string) {
       const factorialIndex = text.indexOf("!");
       const nextChar = text.charAt(factorialIndex + 1);
       let prevCharIndex = factorialIndex - 1;
       let prevChar = text.charAt(prevCharIndex);
-      let factorialResult = 0;
+      let factorialResult: number | string = 0;
       let parsedArr = [];
 
       if (!/[\d\)]/.test(prevChar)) {
@@ -830,9 +853,13 @@ customElements.define(
         innerExpression += "(";
         innerExpression = innerExpression.split("").reverse().join("");
         innerExpression = Function("return " + innerExpression)();
-        factorialResult = this.getFactorialOf(innerExpression);
+        factorialResult = this.getFactorialOf(Number(innerExpression));
         parsedArr = text.split("");
-        parsedArr.splice(index, prevCharIndex - index + 2, factorialResult);
+        parsedArr.splice(
+          index,
+          prevCharIndex - index + 2,
+          factorialResult.toString()
+        );
         return parsedArr.join("");
       }
 
@@ -853,38 +880,42 @@ customElements.define(
       // If char next to '!' is a digit or fraction, multiply it with the factorial
       // (Append * operator to the factorial result)
       if (/[\d\.\(]/.test(nextChar)) {
-        factorialResult += "*";
+        factorialResult = factorialResult.toString() + "*";
       }
 
-      parsedArr.splice(prevCharIndex + 1, power + 1, factorialResult);
+      parsedArr.splice(
+        prevCharIndex + 1,
+        power + 1,
+        factorialResult.toString()
+      );
       return parsedArr.join("");
     }
 
-    getFactorialOf(number) {
-      if (number === 0) {
+    getFactorialOf(num: number): number {
+      if (num === 0) {
         return 1;
       }
-      if (number <= 2) {
-        return number;
+      if (num <= 2) {
+        return num;
       }
-      for (let i = number - 1; i >= 2; --i) {
-        number *= i;
-        if (number === Infinity) {
+      for (let i = num - 1; i >= 2; --i) {
+        num *= i;
+        if (num === Infinity) {
           throw "Value too large";
         }
       }
-      return number;
+      return num;
     }
 
-    getOutputElement(shadowRoot) {
-      return shadowRoot.querySelector("#output > input");
+    getOutputElement(shadowRoot: ShadowRoot): HTMLElement {
+      return shadowRoot.querySelector("#output > input") as HTMLElement;
     }
 
-    getErrorMsgElement(shadowRoot) {
-      return shadowRoot.querySelector("#error-msg");
+    getErrorMsgElement(shadowRoot: ShadowRoot): HTMLElement {
+      return shadowRoot.querySelector("#error-msg") as HTMLElement;
     }
 
-    resetDisplay(shadowRoot) {
+    resetDisplay(shadowRoot: ShadowRoot): void {
       const outputElem = this.getOutputElement(shadowRoot);
       const errMsgElem = this.getErrorMsgElement(shadowRoot);
       const errMsg = errMsgElem.textContent;
