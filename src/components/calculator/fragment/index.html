@@ -1,0 +1,84 @@
+<!---------------------    My Calculator Container   --------------------->
+<div class="calc-container" tabindex="1">
+
+    <!------------------    Heading   ------------------>
+    <div class="calc-heading">
+        <p>My Calculator</p>
+    </div>
+
+    <!------------------    Display   ------------------>
+    <div class="calc-display">
+        <div id="output">
+            <input type="text" inputmode="none" placeholder="Enter input..." tabindex="1.2">
+        </div>
+        <div id="error-msg"></div>
+    </div>
+
+    <!------------------    Keys   ------------------>
+    <div class="calc-keys">
+        <!------------------------    Row 1   ------------------------>
+        <div id="reset-key" class="calc-key" title="All Clear (Reset)" tabindex="2">AC</div>
+        <div class="calc-key orange-keys" id="inverse-key" title="Inverse (Reciprocal)" tabindex="3">
+            <img id="img-inverse-key" src="./resources/images/x-inverse.png" alt="x-inverse-key" width="35" height="35">
+        </div>
+        <div class="calc-key orange-keys" id="squared-key" title="Squared" tabindex="4">
+            <img id="img-squared-key" src="./resources/images/x-square.png" alt="x-squared-key" width="25" height="25">
+        </div>
+        <div class="calc-key orange-keys" id="sqrt-key" title="Square Root" tabindex="5">
+            <img id="img-sqrt-key" src="./resources/images/sqrt.png" alt="sqrt-key" width="40" height="40">
+        </div>
+
+        <!------------------------    Row 2   ------------------------>
+        <div class="calc-key blue-keys" id="parenthesis-key" title="Parenthesis" tabindex="6">
+            ()
+        </div>
+        <div class="calc-key blue-keys" id="factorial-key" title="Factorial ( a! )" tabindex="7">
+            !
+        </div>
+        <div class="calc-key blue-keys" id="exponent-key" title="Exponent (x ^ y)" tabindex="8">
+            <img id="img-exponent-key" src="./resources/images/x-power-y.png" alt="exponent-key" width="30" height="30">
+        </div>
+        <div class="calc-key blue-keys" style="font-size:42px;font-family:monospace" id="divide-key"
+            title="Divide (a / b)" tabindex="9">
+            &divide;
+        </div>
+
+        <!------------------------    Row 3   ------------------------>
+        <div class="calc-key black-keys" id="key-7" tabindex="22">7</div>
+        <div class="calc-key black-keys" id="key-8" tabindex="23">8</div>
+        <div class="calc-key black-keys" id="key-9" tabindex="24">9</div>
+        <div class="calc-key blue-keys" id="multiply-key" title="Multiply (a x b)" tabindex="10">
+            <i id="img-multiply-key" class="material-icons" style="font-size:32px;">close</i>
+        </div>
+
+        <!------------------------    Row 4   ------------------------>
+        <div class="calc-key black-keys" id="key-4" tabindex="19">4</div>
+        <div class="calc-key black-keys" id="key-5" tabindex="20">5</div>
+        <div class="calc-key black-keys" id="key-6" tabindex="21">6</div>
+        <div class="calc-key blue-keys" id="subtract-key" title="Subtract (a - b)" tabindex="11">
+            <i id="img-subtract-key" class="material-icons" style="font-size:35px;">remove</i>
+        </div>
+
+        <!------------------------    Row 5   ------------------------>
+        <div class="calc-key black-keys" id="key-1" tabindex="16">1</div>
+        <div class="calc-key black-keys" id="key-2" tabindex="17">2</div>
+        <div class="calc-key black-keys" id="key-3" tabindex="18">3</div>
+        <div class="calc-key blue-keys" id="add-key" title="Add (a + b)" tabindex="12">
+            <i id="img-add-key" class="material-icons" style="font-size:35px;">add</i>
+        </div>
+
+        <!------------------------    Row 6   ------------------------>
+        <div class="calc-key black-keys" id="decimal-point-key" title="Decimal point" tabindex="25">.</div>
+        <div class="calc-key black-keys" id="key-0" tabindex="15">0</div>
+        <div class="calc-key black-keys" id="backspace-key" title="Backspace" tabindex="14">
+            <i id="img-backspace-key" class="material-icons" style="font-size: 30px;margin-right: 2px">
+                backspace
+            </i>
+        </div>
+        <div id="equal-key" class="calc-key" style="font-size:41px;font-family:monospace" title="Equals (Calculate)"
+            tabindex="13">
+            =
+        </div>
+
+    </div>
+</div>
