@@ -3,7 +3,7 @@
 /* eslint-disable class-methods-use-this */
 /* eslint-disable no-throw-literal */
 /* eslint-disable no-useless-escape */
-import { createShadowRoot } from 'src/lib/html';
+import { createShadowRoot } from '../../../lib/html.js';
 import html from '../fragment/index.html?raw';
 import css from '../css/index.css?inline';
 
