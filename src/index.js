@@ -1,1 +1,1 @@
-import '#components/calculator';
+import './components/calculator/js';
