@@ -1,4 +1,4 @@
-import { createSheet } from './css';
+import { createSheet } from './css.js';
 
 /**
  * Creates a template element for use in the ShadowDOM

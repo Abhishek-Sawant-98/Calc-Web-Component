@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/assets/favicon512.png" />
+    <link rel="apple-touch-icon" href="/assets/favicon192.png" />
+    <link rel="manifest" href="/assets/manifest.json" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="An Online Calc Web component built using HTML, CSS, JS"
+    />
+    <title>Online Calculator</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        width: 96vw;
+        height: 100vh;
+        background-image: linear-gradient(
+          120deg,
+          rgba(240, 226, 100, 0.5),
+          rgba(247, 152, 44, 0.5)
+        );
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+      }
+
+      @media screen and (max-width: 450px) {
+        body {
+          width: 120vw;
+        }
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/index.js"></script>
+  </head>
+
+  <body>
+    <!-- My custom calculator web component -->
+    <my-calculator
+      calc-name="Abhishek's Calc"
+      calc-input=""
+      width="360px"
+      height=""
+      margin="50px 0"
+      border-radius="25px"
+    >
+    </my-calculator>
+
+    <!-- Service worker registration script -->
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", async () => {
+          try {
+            await navigator.serviceWorker.register("service-worker.js");
+          } catch (error) {
+            // registration failed :(
+            console.error("ServiceWorker registration failed: ", error);
+          }
+        });
+      }
+    </script>
+
+  </body>
+</html>
