@@ -34,5 +34,8 @@
     "#components/*": "./src/components/*/js/index.js",
     "#config/*": "./src/config/*",
     "#lib/*": "./src/lib/*"
+  },
+  "dependencies": {
+    "material-icons": "^1.13.12"
   }
 }
