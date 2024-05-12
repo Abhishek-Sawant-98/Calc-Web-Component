@@ -11,8 +11,8 @@ class MyCalculator extends HTMLElement {
 	constructor() {
 		super();
 		createShadowRoot.call( this, html, css );
-		this.setOnclickForAllKeys();
-		this.getOutputElement().focus();
+		this.#setOnclickForAllKeys();
+		this.#getOutputElement().focus();
 	}
 
 	static observedAttributes = [
@@ -59,7 +59,7 @@ class MyCalculator extends HTMLElement {
 		}
 	}
 
-	setOnclickForAllKeys() {
+	#setOnclickForAllKeys() {
 		const outputElem = this.root.querySelector(
 				'#output > input',
 			),
@@ -68,34 +68,34 @@ class MyCalculator extends HTMLElement {
 			charToBeInserted;
 
 		const onNumericKeyClick = ( n ) => {
-				this.resetDisplay();
-				this.insertChar( outputElem, n );
+				this.#resetDisplay();
+				this.#insertChar( outputElem, n );
 				outputElem.focus();
 			},
 
 			onResetKeyClick = () => {
-				this.resetDisplay();
+				this.#resetDisplay();
 				outputElem.value = '';
 				outputElem.focus();
 			},
 
 			onInverseKeyClick = () => {
-				this.calculateResult( '**-1' );
+				this.#calculateResult( '**-1' );
 				outputElem.focus();
 			},
 
 			onSquaredKeyClick = () => {
-				this.calculateResult( '**2' );
+				this.#calculateResult( '**2' );
 				outputElem.focus();
 			},
 
 			onSqrtKeyClick = () => {
-				this.calculateResult( '**0.5' );
+				this.#calculateResult( '**0.5' );
 				outputElem.focus();
 			},
 
 			onParenthesisKeyClick = () => {
-				displayText = this.getDisplayTextBeforeCaret( outputElem );
+				displayText = this.#getDisplayTextBeforeCaret( outputElem );
 				let openingBracketCount = 0,
 					closingBracketCount = 0;
 				const lastChar = displayText.charAt( displayText.length - 1 );
@@ -113,94 +113,94 @@ class MyCalculator extends HTMLElement {
 							? ')'
 							: '(';
 
-				this.insertChar( outputElem, charToBeInserted );
+				this.#insertChar( outputElem, charToBeInserted );
 			},
 
 			onExponentKeyClick = () => {
-				this.resetDisplay();
-				displayText = this.getDisplayTextBeforeCaret( outputElem );
+				this.#resetDisplay();
+				displayText = this.#getDisplayTextBeforeCaret( outputElem );
 				charToBeInserted = displayText === ''
 					? ''
 					: /[\^\(]$/.test( displayText )
 						? ''
 						: /[\-\+\x\/\.]$/.test( displayText )
-							? this.replaceOperator( outputElem, '^' )
+							? this.#replaceOperator( outputElem, '^' )
 							: '^';
 
-				this.insertChar( outputElem, charToBeInserted );
+				this.#insertChar( outputElem, charToBeInserted );
 			},
 
 			onFactorialKeyClick = () => {
-				this.resetDisplay();
-				displayText = this.getDisplayTextBeforeCaret( outputElem );
+				this.#resetDisplay();
+				displayText = this.#getDisplayTextBeforeCaret( outputElem );
 				charToBeInserted = displayText === ''
 					? ''
 					: /[\(]$/.test( displayText )
 						? ''
 						: /[\-\+\x\^\/\.]$/.test( displayText )
-							? this.replaceOperator( outputElem, '!' )
+							? this.#replaceOperator( outputElem, '!' )
 							: '!';
 
-				this.insertChar( outputElem, charToBeInserted );
+				this.#insertChar( outputElem, charToBeInserted );
 			},
 
 			onDivideKeyClick = () => {
-				this.resetDisplay();
-				displayText = this.getDisplayTextBeforeCaret( outputElem );
+				this.#resetDisplay();
+				displayText = this.#getDisplayTextBeforeCaret( outputElem );
 				charToBeInserted = displayText === ''
 					? ''
 					: /[\/\(]$/.test( displayText )
 						? ''
 						: /[\-\+\x\^]$/.test( displayText )
-							? this.replaceOperator( outputElem, '/' )
+							? this.#replaceOperator( outputElem, '/' )
 							: '/';
 
-				this.insertChar( outputElem, charToBeInserted );
+				this.#insertChar( outputElem, charToBeInserted );
 			},
 
 			onMultiplyKeyClick = () => {
-				this.resetDisplay();
-				displayText = this.getDisplayTextBeforeCaret( outputElem );
+				this.#resetDisplay();
+				displayText = this.#getDisplayTextBeforeCaret( outputElem );
 				charToBeInserted = displayText === ''
 					? ''
 					: /[\x\(]$/.test( displayText )
 						? ''
 						: /[\-\+\/\^]$/.test( displayText )
-							? this.replaceOperator( outputElem, 'x' )
+							? this.#replaceOperator( outputElem, 'x' )
 							: 'x';
 
-				this.insertChar( outputElem, charToBeInserted );
+				this.#insertChar( outputElem, charToBeInserted );
 			},
 
 			onSubtractKeyClick = () => {
-				this.resetDisplay();
-				displayText = this.getDisplayTextBeforeCaret( outputElem );
+				this.#resetDisplay();
+				displayText = this.#getDisplayTextBeforeCaret( outputElem );
 				charToBeInserted = /[\-]$/.test( displayText )
 					? ''
 					: /[\+\.]$/.test( displayText )
-						? this.replaceOperator( outputElem, '-' )
+						? this.#replaceOperator( outputElem, '-' )
 						: '-';
 
-				this.insertChar( outputElem, charToBeInserted );
+				this.#insertChar( outputElem, charToBeInserted );
 			},
 
 			onAddKeyClick = () => {
-				this.resetDisplay();
-				displayText = this.getDisplayTextBeforeCaret( outputElem );
+				this.#resetDisplay();
+				displayText = this.#getDisplayTextBeforeCaret( outputElem );
 				charToBeInserted = displayText === ''
 					? ''
 					: /[\+\(]$/.test( displayText )
 						? ''
 						: /[\-\.\x\/\^]$/.test( displayText )
-							? this.replaceOperator( outputElem, '+' )
+							? this.#replaceOperator( outputElem, '+' )
 							: '+';
 
-				this.insertChar( outputElem, charToBeInserted );
+				this.#insertChar( outputElem, charToBeInserted );
 			},
 
 			onBackspaceKeyClick = () => {
-				this.resetDisplay();
-				let caretPos = this.getCaretPosition( outputElem );
+				this.#resetDisplay();
+				let caretPos = this.#getCaretPosition( outputElem );
 				const arr = outputElem.value.split( '' );
 				arr.splice( --caretPos, 1 ); // Remove the character preceding the caret (caretPos - 1)
 				outputElem.value = arr.join( '' );
@@ -209,15 +209,15 @@ class MyCalculator extends HTMLElement {
 			},
 
 			onEqualKeyClick = () => {
-				this.calculateResult( '' );
-				this.getOutputElement().focus();
+				this.#calculateResult( '' );
+				this.#getOutputElement().focus();
 			},
 
 			onDecimalPointKeyClick = () => {
-				this.resetDisplay();
-				displayText = this.getDisplayTextBeforeCaret( outputElem );
+				this.#resetDisplay();
+				displayText = this.#getDisplayTextBeforeCaret( outputElem );
 				charToBeInserted = displayText === '' ? '0.' : /[\.]$/.test( displayText ) ? '' : '.';
-				this.insertChar( outputElem, charToBeInserted );
+				this.#insertChar( outputElem, charToBeInserted );
 			};
 
 		// Event delegation (using 'e.target.id' to set event listener to each calc key)
@@ -354,7 +354,7 @@ class MyCalculator extends HTMLElement {
 		} );
 
 		outputElem.addEventListener( 'focus', () => {
-			const caretPos = this.getCaretPosition( outputElem );
+			const caretPos = this.#getCaretPosition( outputElem );
 			outputElem.setSelectionRange( caretPos, caretPos );
 		} );
 
@@ -405,7 +405,7 @@ class MyCalculator extends HTMLElement {
 		} );
 	}
 
-	insertChar( outputElem, char ) {
+	#insertChar( outputElem, char ) {
 		const outputEl = outputElem,
 			arr = outputEl.value.split( '' );
 		if ( char === 'replaced' ) return;
@@ -414,7 +414,7 @@ class MyCalculator extends HTMLElement {
 			outputEl.focus();
 			return;
 		}
-		let insertionIndex = this.getCaretPosition( outputEl );
+		let insertionIndex = this.#getCaretPosition( outputEl );
 		arr.splice( insertionIndex, 0, char );
 		outputEl.value = arr.join( '' );
 		// Set the caret position at 'insertionIndex + 1' (if it's not -1) or else at
@@ -425,19 +425,19 @@ class MyCalculator extends HTMLElement {
 		outputEl.focus();
 	}
 
-	getCaretPosition( outputElem ) {
+	#getCaretPosition( outputElem ) {
 		if ( !outputElem ) return 0;
 		return outputElem.selectionStart || outputElem.value.length - 1;
 	}
 
-	getDisplayTextBeforeCaret( outputElem ) {
-		const caretPos = this.getCaretPosition( outputElem );
+	#getDisplayTextBeforeCaret( outputElem ) {
+		const caretPos = this.#getCaretPosition( outputElem );
 		return outputElem.value.substring( 0, caretPos );
 	}
 
-	replaceOperator( outputElem, operator ) {
+	#replaceOperator( outputElem, operator ) {
 		const outputEl = outputElem,
-			caretPos = this.getCaretPosition( outputEl ),
+			caretPos = this.#getCaretPosition( outputEl ),
 			arr = outputEl.value.split( '' );
 		arr.splice( caretPos - 1, 1, operator );
 		outputEl.value = arr.join( '' );
@@ -446,7 +446,7 @@ class MyCalculator extends HTMLElement {
 		return 'replaced';
 	}
 
-	parseExpression( expression ) {
+	#parseExpression( expression ) {
 		// Replace '.' with '*('        .(     =>   *(
 		// Just after 0-9 add '*'       9(     =>   9*(
 		// Just after '!' add '*'       !(     =>   !*(
@@ -483,15 +483,15 @@ class MyCalculator extends HTMLElement {
 			.replaceAll( ')9', ')*9' );
 	}
 
-	calculateResult( appendOperation ) {
-		this.resetDisplay();
-		const outputElem = this.getOutputElement();
+	#calculateResult( appendOperation ) {
+		this.#resetDisplay();
+		const outputElem = this.#getOutputElement();
 		let displayText = outputElem.value;
 		if ( displayText === '' ) {
 			return;
 		}
 
-		displayText = this.parseExpression( displayText );
+		displayText = this.#parseExpression( displayText );
 		displayText += appendOperation;
 
 		let result;
@@ -502,7 +502,7 @@ class MyCalculator extends HTMLElement {
 			}
 			while ( /!/.test( displayText ) ) {
 				// As long as '!' is present
-				displayText = this.parseFactorialInput( displayText );
+				displayText = this.#parseFactorialInput( displayText );
 			}
 			result = Function( `return ${displayText}` )();
 			if ( result === Infinity || result === -Infinity ) {
@@ -525,14 +525,14 @@ class MyCalculator extends HTMLElement {
 				outputElem.value = result;
 			}
 		} catch ( err ) {
-			const errMsgElem = this.getErrorMsgElement(),
+			const errMsgElem = this.#getErrorMsgElement(),
 				errMsg = typeof err === 'string' ? err : 'Invalid Input';
 			outputElem.style.color = 'rgb(255, 87, 21)';
 			errMsgElem.textContent = errMsg;
 		}
 	}
 
-	parseFactorialInput( text ) {
+	#parseFactorialInput( text ) {
 		const factorialIndex = text.indexOf( '!' ),
 			nextChar = text.charAt( factorialIndex + 1 );
 		let prevCharIndex = factorialIndex - 1,
@@ -565,7 +565,7 @@ class MyCalculator extends HTMLElement {
 			innerExpression += '(';
 			innerExpression = innerExpression.split( '' ).reverse().join( '' );
 			innerExpression = new Function( `return ${innerExpression}` )();
-			factorialResult = this.getFactorialOf( Number( innerExpression ) );
+			factorialResult = this.#getFactorialOf( Number( innerExpression ) );
 			parsedArr = text.split( '' );
 			parsedArr.splice(
 				index,
@@ -586,7 +586,7 @@ class MyCalculator extends HTMLElement {
 			// Factorial of fractions are invalid
 			throw 'Invalid Input'; // Eg: (5.03! or .03!) is invalid
 		}
-		factorialResult = this.getFactorialOf( number );
+		factorialResult = this.#getFactorialOf( number );
 		parsedArr = text.split( '' );
 
 		// If char next to '!' is a digit or fraction, multiply it with the factorial
@@ -603,7 +603,7 @@ class MyCalculator extends HTMLElement {
 		return parsedArr.join( '' );
 	}
 
-	getFactorialOf( num ) {
+	#getFactorialOf( num ) {
 		let tempNum = num;
 		if ( tempNum === 0 ) {
 			return 1;
@@ -620,17 +620,17 @@ class MyCalculator extends HTMLElement {
 		return tempNum;
 	}
 
-	getOutputElement() {
+	#getOutputElement() {
 		return this.root.querySelector( '#output > input' );
 	}
 
-	getErrorMsgElement() {
+	#getErrorMsgElement() {
 		return this.root.querySelector( '#error-msg' );
 	}
 
-	resetDisplay() {
-		const outputElem = this.getOutputElement(),
-			errMsgElem = this.getErrorMsgElement(),
+	#resetDisplay() {
+		const outputElem = this.#getOutputElement(),
+			errMsgElem = this.#getErrorMsgElement(),
 			errMsg = errMsgElem.textContent;
 		if ( errMsg === 'Invalid Input' || errMsg === 'Value too large' ) {
 			outputElem.style.color = 'rgb(235, 235, 235)';
