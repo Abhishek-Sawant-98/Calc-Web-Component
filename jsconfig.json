@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "module": "ESNext",
+        "baseUrl": ".",
+        "paths": {
+            "#components/*": ["./src/components/*/js/index.js"],
+            "#config/*": ["./src/config/*"],
+            "#lib/*": ["./src/lib/*"]
+        },
+        "target": "ESNext",
+        "moduleResolution": "bundler"
+    }
+}

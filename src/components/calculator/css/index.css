@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+.calc-container {
+    user-select: none;
+    display: inline-block;
+    -ms-overflow-style: none;
+    /* Hide scrollbar in IE, Edge */
+    scrollbar-width: none;
+    /* Hide scrollbar in Firefox */
+    width: 360px;
+    margin: 50px;
+    padding: 10px;
+    border-radius: 25px;
+    border: 15px ridge rgb(165, 165, 165);
+    background-image: linear-gradient(0deg, rgb(0, 0, 0), rgb(0, 7, 100));
+    box-shadow: 15px 15px 15px 0px rgba(54, 54, 54, 0.6);
+}
+
+/* Hide scrollbar in Chrome and Safari */
+::-webkit-scrollbar {
+    display: none;
+    width: 0px;
+}
+
+.calc-heading {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: -15px;
+    margin-top: -25px;
+    border-radius: 15px;
+    background-image: linear-gradient(45deg, rgba(255, 37, 237, 0.5), rgba(255, 45, 108, 0.5));
+
+}
+
+.calc-heading>p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(214, 214, 214);
+}
+
+.calc-display {
+    color: rgb(235, 235, 235);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    height: 100px;
+    margin: 10px 0px;
+    padding: 1px;
+    border-radius: 15px;
+    background-color: rgb(75, 75, 75);
+}
+
+#output {
+    display: flex;
+    justify-content: flex-start;
+}
+
+#output > input {
+    display: inline-block;
+    overflow: scroll;
+    border: none;
+    outline: none;
+    line-height: 55px;
+    /* To set caret height */
+    caret-color: rgb(0, 174, 255);
+    margin: 0px 10px;
+    font-size: 32px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(75, 75, 75);
+    color: rgb(235, 235, 235);
+}
+
+#error-msg {
+    margin: 0px 10px;
+    overflow: scroll;
+    color: rgb(255, 87, 21);
+    font-size: 21px;
+}
+
+.calc-keys {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0px;
+    margin: 10px;
+}
+
+.calc-key {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4px 4px;
+    width: 70px;
+    height: 55px;
+    font-size: 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 50%;
+}
+
+.calc-key:hover {
+    cursor: pointer;
+    box-shadow: 4px 4px 15px rgba(173, 173, 173, 0.6);
+}
+
+.calc-key:active {
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+#equal-key {
+    color: rgb(8, 8, 8);
+    background-color: rgb(200, 255, 252);
+}
+
+#equal-key:hover {
+    color: rgb(8, 8, 8);
+    background-color: rgb(228, 255, 254);
+}
+
+#reset-key {
+    color: rgb(8, 8, 8);
+    background-color: rgb(153, 226, 153);
+}
+
+#reset-key:hover {
+    color: rgb(8, 8, 8);
+    background-color: rgb(184, 255, 184);
+}
+
+#parenthesis-key {
+    font-family:monospace;
+    font-weight:bold;
+}
+
+#factorial-key {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 35px;
+}
+
+.blue-keys {
+    color: rgb(8, 8, 8);
+    background-color: rgb(0, 174, 255);
+}
+
+.blue-keys:hover {
+    color: rgb(8, 8, 8);
+    background-color: rgb(124, 213, 255);
+}
+
+.orange-keys {
+    color: rgb(8, 8, 8);
+    background-color: rgb(196, 127, 0);
+}
+
+.orange-keys:hover {
+    color: rgb(8, 8, 8);
+    background-color: rgb(252, 164, 0);
+}
+
+.black-keys {
+    color: rgb(235, 235, 235);
+    background-color: rgb(61, 61, 61);
+}
+
+.black-keys:hover {
+    color: rgb(235, 235, 235);
+    background-color: rgb(90, 90, 90);
+}
+
+.black-keys:active {
+    color: rgb(235, 235, 235);
+    background-color: rgb(100, 100, 100);
+}
