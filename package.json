@@ -1,23 +1,36 @@
 {
   "name": "calc-web-component",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Hi there👋 &nbsp;&nbsp;This is a **Standard Calculator** [`Web Component`](https://developer.mozilla.org/en-US/docs/Web/Web_Components) (custom element) developed only using HTML5, CSS3, and Vanilla JS. The custom tag created for this calculator is `<my-calculator></my-calculator>`. This custom tag contains various attributes which can be modified to our liking in `index.html` file.",
   "main": "service-worker.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Abhishek-Sawant-98/Calc-Web-Component.git"
+  "eslintConfig": {
+    "overrides": [
+      {
+        "files": "",
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Abhishek-Sawant-98/Calc-Web-Component/issues"
-  },
-  "homepage": "https://github.com/Abhishek-Sawant-98/Calc-Web-Component#readme",
   "devDependencies": {
-    "typescript": "^4.8.4"
+    "@eslint/js": "^8.56.0",
+    "@html-eslint/eslint-plugin": "^0.23.1",
+    "@html-eslint/parser": "^0.23.0",
+    "eslint": "^8.56.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsdoc": "^46.9.1",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "vite": "^5.0.8"
+  },
+  "imports": {
+    "#components/*": "./src/components/*/js/index.js",
+    "#config/*": "./src/config/*",
+    "#lib/*": "./src/lib/*"
   }
 }
