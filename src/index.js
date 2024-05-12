@@ -1,1 +1,1 @@
-import './components/calculator/js';
+import './components/calculator/js/index.js';
