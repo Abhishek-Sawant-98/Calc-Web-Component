@@ -63,6 +63,7 @@
     border: none;
     outline: none;
     line-height: 55px;
+    width: -webkit-fill-available;
     /* To set caret height */
     caret-color: rgb(0, 174, 255);
     margin: 0px 10px;
