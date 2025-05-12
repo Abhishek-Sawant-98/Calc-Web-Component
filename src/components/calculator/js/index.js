@@ -100,7 +100,7 @@ class MyCalculator extends HTMLElement {
 					closingBracketCount = 0;
 				const lastChar = displayText.charAt( displayText.length - 1 );
 
-				displayText.forEach( ( ch ) => {
+				[ ...displayText ].forEach( ( ch ) => {
 					openingBracketCount += ch === '(' ? 1 : 0;
 					closingBracketCount += ch === ')' ? 1 : 0;
 				} );
