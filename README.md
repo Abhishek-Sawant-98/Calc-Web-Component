@@ -47,6 +47,13 @@ Hi there👋 &nbsp;&nbsp;This is a **Standard Calculator** [`Web Component`](htt
 ## Steps to Run Project Locally 💻
 - Clone this repo to your local machine.
 - Open repo in [`vscode`](https://code.visualstudio.com/).
-- Open with [`live server`](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer).
+```sh
+# install dependencies
+npm install
+# serve at localhost:3000 with hot reload
+npm start
+# build for production
+npm run build
+```
  <img src="https://user-images.githubusercontent.com/66935206/161602165-dd6e35d3-8dd2-41f2-a7aa-f42cb3f972cc.gif" width="200" height="200" alt="as_simple_as_that">
 
