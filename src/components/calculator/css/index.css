@@ -58,18 +58,18 @@
 }
 
 #output > input {
-    display: inline-block;
-    overflow: scroll;
+    background-color: rgb(75, 75, 75);
     border: none;
-    outline: none;
-    line-height: 55px;
     /* To set caret height */
     caret-color: rgb(0, 174, 255);
-    margin: 0px 10px;
-    font-size: 32px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: rgb(75, 75, 75);
     color: white;
+    display: inline-block;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 32px;
+    line-height: 55px;
+    margin: 0px 10px;
+    outline: none;
+    overflow: scroll;
     width: 100%;
 }
 
